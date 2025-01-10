@@ -20,7 +20,7 @@ const PouletSchema = new mongoose.Schema(
     },
     user: {
       type: mongoose.Schema.Types.ObjectId, // Référence à un utilisateur
-      ref: "User", // Collection User pour les relations
+      ref: "UserCompany", // Collection User pour les relations
       required: [true, "L'utilisateur est requis"],
     },
     etatSante: {
@@ -31,7 +31,7 @@ const PouletSchema = new mongoose.Schema(
     type: {
       type: String,
       required: [true, "Veuillez entrer le type de poulet"],
-      enum: ["pondeuse", "reproductrice"], // Limiter les valeurs possibles
+      enum: ["pondeuse", "reproducteur"], // Limiter les valeurs possibles
     },
     sex: {
       type: String,
@@ -45,5 +45,4 @@ const PouletSchema = new mongoose.Schema(
 );
 
 // Exporter le modèle
-const Poulet = mongoose.model("Poulet", PouletSchema);
-export default Poulet;
+export const PouletModel = mongoose.model("Pulet", PouletSchema);

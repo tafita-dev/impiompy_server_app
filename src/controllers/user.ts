@@ -99,7 +99,7 @@ export const UsersCompanies = async (
 };
 
 export const UUpdateCompanies = async (
-  req: Request,
+  req: Request | any,
   res: Response,
   next: NextFunction
 ) => {
@@ -113,6 +113,7 @@ export const UUpdateCompanies = async (
       throw new HandlerError("Utilisateur est requis", 400, {});
     }
     const User = await user.getUserByID(req.body.Id);
+    console.log(req?.user);
 
     if (User) {
       User.status = req.body.status;

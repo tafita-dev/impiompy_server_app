@@ -1,5 +1,6 @@
+import { PouletModel } from "../models/Poulet";
 import { UserModel } from "../models/User";
-import { userInterface } from "../types/User";
+import { PouletInterface, userInterface } from "../types/User";
 
 export class User {
   //create user
@@ -22,6 +23,14 @@ export class User {
   public getAllUserCompanies = async () => {
     const usersCompanies = await UserModel.find().sort({ createdAt: -1 });
     return usersCompanies;
+  };
+}
+
+export class Poulet {
+  //create Pulet
+  public Create = async (poulet: PouletInterface) => {
+    const newPoulet = await PouletModel.create(poulet);
+    return newPoulet;
   };
 }
 

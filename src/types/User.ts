@@ -10,6 +10,16 @@ export interface userInterface {
   createdAt?: Date;
   status?: number;
 }
+export interface PouletInterface {
+  name: string;
+  lot?: string;
+  dateNaissance: Date;
+  image: string;
+  user: string;
+  etatSante?: string;
+  type?: string;
+  sex?: string;
+}
 
 export interface UserDocument extends Document, userInterface {
   matchPassword: (password: string) => Promise<Boolean>;

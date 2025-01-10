@@ -5,6 +5,7 @@ import { errorMiddleware } from "./src/middlewares/HandlError";
 import Body_Parser from "body-parser";
 import fileUpload from "express-fileupload";
 import { UserRouter } from "./src/routes/user";
+import { PouletRouter } from "./src/routes/poulet";
 const cookieParser = require("cookie-parser");
 import cors from "cors";
 
@@ -33,6 +34,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/api/v1", UserRouter);
+app.use("/api/v1", PouletRouter);
 
 app.use(errorMiddleware);
 
