@@ -13,7 +13,7 @@ export const UserRouter = Express.Router();
 UserRouter.route("/user/create").post(CreateUser);
 UserRouter.route("/user/login").post(Login);
 UserRouter.route("/user/logout").get(logout);
-UserRouter.route("/user/oneuser").get(
+UserRouter.route("/user/oneuser").post(
   isAuthentificatedUser,
   authorizeRole("Admin"),
   getOneUser

@@ -139,6 +139,7 @@ export const getOneUser = async (
   next: NextFunction
 ) => {
   const { id } = req.body || req.params;
+  console.log(id);
   try {
     if (!id) {
       throw new HandlerError("Utilisateur est requis", 404, {});
@@ -150,6 +151,7 @@ export const getOneUser = async (
 
     throw new HandlerError("Utilisateur connecté", 200, OneUser);
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };
