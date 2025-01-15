@@ -132,3 +132,24 @@ export const UUpdateCompanies = async (
     next(error);
   }
 };
+
+export const getOneUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { id } = req.body || req.params;
+  try {
+    if (!id) {
+      throw new HandlerError("Utilisateur est requis", 404, {});
+    }
+    const OneUser = await user.getUserByID(id);
+    if (!OneUser) {
+      throw new HandlerError("Utilisateur n'existe pas", 404, {});
+    }
+
+    throw new HandlerError("Utilisateur connecté", 200, OneUser);
+  } catch (error) {
+    next(error);
+  }
+};
